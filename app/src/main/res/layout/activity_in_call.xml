@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_profile" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atikur Rahman"
+            android:textAppearance="@android:style/TextAppearance.Material.Title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+8801521446530" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/callState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muted | Held" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/callDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:08:46"
+            android:textAppearance="@android:style/TextAppearance.Material.Title" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/incomingCallControls"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="56dp"
+                android:contentDescription="@string/reject_call"
+                android:src="@drawable/ic_call_end"
+                android:tint="@color/white"
+                app:backgroundTint="@color/red_500" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="56dp"
+                android:contentDescription="@string/accept_call"
+                android:src="@drawable/ic_dialer_sip"
+                android:tint="@color/white"
+                app:backgroundTint="@color/green_500" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/inCallControls"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:id="@+id/callControls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:stretchColumns="0,1,2">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/muteButton"
+                        style="@style/Theme.CallControl"
+                        android:src="@drawable/ic_mic" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/speakerButton"
+                        style="@style/Theme.CallControl"
+                        android:src="@drawable/ic_speaker" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/holdButton"
+                        style="@style/Theme.CallControl"
+                        android:src="@drawable/ic_pause" />
+                </TableRow>
+
+                <net.chitholian.uilib.DialPadView
+                    android:id="@+id/dialPad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:alpha="0"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_people"
+                    android:tint="@color/tint_normal" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dialButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:padding="16dp"
+                    android:text="@string/hang_up"
+                    app:backgroundTint="@color/red_500"
+                    app:cornerRadius="32dp"
+                    app:icon="@drawable/ic_call_end" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/dialPadToggle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_dial_pad"
+                    android:tint="@color/tint_normal" />
+            </TableRow>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

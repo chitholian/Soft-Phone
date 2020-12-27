@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/numberFieldContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:visibility="gone">
+        <!-- The numbers field -->
+        <net.chitholian.uilib.DigitsInputField
+            android:id="@+id/numberField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="48dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:inputType="phone"
+            android:scrollHorizontally="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="28sp" />
+
+        <!-- The Backspace button -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_backspace" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <!-- The Number Pad -->
+    <GridView
+        android:id="@+id/dialPadButtonsGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:scrollbars="none" />
+</merge>

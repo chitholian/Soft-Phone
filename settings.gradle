@@ -1,0 +1,5 @@
+include ':voipcodec'
+include ':siplib'
+include ':uilib'
+include ':app'
+rootProject.name = "Soft Phone"

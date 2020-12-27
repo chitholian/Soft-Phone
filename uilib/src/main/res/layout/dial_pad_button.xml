@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="digitText"
+            type="String" />
+
+        <variable
+            name="lettersText"
+            type="String" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dialPadButtonDigit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@{digitText}"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dialPadButtonLetters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{lettersText}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Soft Phone</string>
+    <string name="dial_now">Dial Now</string>
+    <string name="show_dial_pad">Show Dial Pad</string>
+    <string name="hang_up">Hang Up</string>
+    <string name="accept_call">Accept Call</string>
+    <string name="reject_call">Reject Call</string>
+    <string name="call_type_indicator">Call Type Indicator</string>
+    <string name="add_contact">Add Contact</string>
+</resources>

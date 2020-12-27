@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="callLogEntry"
+            type="net.chitholian.softphone.CallLogEntry" />
+
+        <import type="android.provider.CallLog.Calls" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/callTypeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/call_type_indicator"
+            android:src="@{callLogEntry.type == Calls.OUTGOING_TYPE ? @drawable/ic_outgoing : callLogEntry.type == Calls.INCOMING_TYPE ? @drawable/ic_incoming : @drawable/ic_missed}"
+            android:tint="@{callLogEntry.type == Calls.OUTGOING_TYPE ? @color/blue_500 : callLogEntry.type == Calls.INCOMING_TYPE ? @color/green_500 : @color/red_500}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:text="@{callLogEntry.cachedName}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toEndOf="@id/callTypeIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:singleLine="true"
+            android:text="@{callLogEntry.number}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/callTypeIcon"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12sp"
+            android:layout_marginEnd="12sp"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:gravity="end"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@{callLogEntry.isoDate()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/detailsButton"
+            app:layout_constraintStart_toEndOf="@id/number"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/detailsButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/circle_normal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_right"
+            android:tint="@color/tint_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
